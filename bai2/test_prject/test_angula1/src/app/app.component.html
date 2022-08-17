@@ -1,0 +1,21 @@
+<main>
+  <app-header [numberItems]="cartsumary.numberItems"></app-header>
+
+
+  <section class="container">
+    <app-product-list [products]="products"></app-product-list>
+  </section>
+  <section class="container">
+
+
+
+    <div class="checkout">
+      <button type="button">Check Out</button>
+    </div>
+    <app-promo-code></app-promo-code>
+
+    <app-cart-sumary [sumary]="cartsumary" ></app-cart-sumary>
+  </section>
+
+</main>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

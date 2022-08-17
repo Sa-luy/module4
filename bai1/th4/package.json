@@ -1,0 +1,7 @@
+{
+    "name": "th4",
+    "version": "1.0.0",
+    "dependencies": {
+        "typescript": "^4.7.4"
+    }
+}
