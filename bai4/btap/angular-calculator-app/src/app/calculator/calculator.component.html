@@ -1,0 +1,38 @@
+<table class="table">
+  <tr>
+    <td colspan="4"><input type="text" [(ngModel)]="total" #number1 placeholder="0"></td>
+  </tr>
+  <tr>
+    <td ><input type="button" value="C" (click)="reset()"></td>
+    <td colspan="2"></td>
+    <td><input type="button" value="D" (click)="deleteNumber(number1.value)"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="7" (click)="clickNumber(element7.value)" #element7></td>
+    <td><input type="button" value="8" (click)="clickNumber(element8.value)" #element8></td>
+    <td><input type="button" value="9" (click)="clickNumber(element9.value)" #element9></td>
+    <td><input type="button" value="/"(click)="divide(number1.value)"></td>
+
+  </tr>
+  <tr>
+    <td><input type="button" value="4" (click)="clickNumber(element4.value)" #element4></td>
+    <td><input type="button" value="5" (click)="clickNumber(element5.value)" #element5></td>
+    <td><input type="button" value="6" (click)="clickNumber(element6.value)" #element6></td>
+    <td><input type="button" value="*"(click)="multi(number1.value)"></td>
+
+  </tr>
+  <tr>
+    <td><input type="button" value="1" (click)="clickNumber(element1.value)" #element1></td>
+    <td><input type="button" value="2" (click)="clickNumber(element2.value)" #element2></td>
+    <td><input type="button" value="3"(click)="clickNumber(element3.value)" #element3></td>
+    <td><input type="button" value="-" (click)="brand(number1.value)"></td>
+
+  </tr>
+  <tr>
+    <td><input type="button" value="0" (click)="clickNumber(element0.value)" #element0></td>
+    <td><input type="button" value="."></td>
+    <td><input type="button" value="=" (click)="plain(number1.value)"></td>
+    <td><input type="button" value="+" (click)="sum(number1.value)" ></td>
+
+  </tr>
+</table>
