@@ -24,7 +24,8 @@
         #quantityElement
         class="quantity" step="1"
          [value]="product.quantity"
-        (input)="updateQuantity(quantityElement,product.id)"
+         [id]="product.id"
+        (input)="updateQuantity(quantityElement)"
         />
       </div>
 

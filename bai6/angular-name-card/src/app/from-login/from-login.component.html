@@ -1,0 +1,58 @@
+<div class="name-card">
+  <div class="name-card__content-left">
+    <img src="https://genk.mediacdn.vn/thumb_w/690/2019/7/8/1-15625474669018688730.jpg" alt="Logo"
+      class="name-card__avatar">
+  </div>
+  <div class="name-card__content-right">
+    <form [formGroup]="LoginForm" (ngSubmit)="submit()">
+      <b class="fs-1">Login</b>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+          aria-describedby="emailHelp" >
+          <!-- {{form.email.errors?.['email']}} -->
+        <div *ngIf="form.email.valid && (form.email.dirty || form.email.touched)">
+          <div *ngIf="form.email.errors">
+            <div *ngIf="form.email.errors?.['required']">
+              <p>email k dc de trong</p>
+            </div>
+            <div *ngIf="form.email.errors?.['email']">
+              <p>khong dung dinh dang email/p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    <div *ngIf="form.password.valid && (form.password.dirty || form.password.touched)">
+      <div *ngIf="form.password.errors">
+        <div *ngIf="form.password.errors?.['required']">
+          <p>Password is required</p>
+
+        </div>
+        <div *ngIf="form.password.errors?.['minLength']">
+          password is min length = 8
+        </div>
+
+      </div>
+
+    </div>
+
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <div *ngIf="LoginForm.valid">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+      <!-- <button type="submit" [disabled]="!LoginForm.valid" class="btn btn-primary">Submit</button> -->
+    </form>
+  </div>
+</div>

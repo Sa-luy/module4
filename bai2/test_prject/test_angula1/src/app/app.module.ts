@@ -6,7 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { PromoCodeComponent } from './promo-code/promo-code.component';
 import { CartSumaryComponent } from './cart-sumary/cart-sumary.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,13 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ProductListComponent,
     PromoCodeComponent,
-    CartSumaryComponent
+    CartSumaryComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

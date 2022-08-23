@@ -1,19 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Product } from './product.model';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 
 })
-export class AppComponent {
-  cartsumary={
-  numberItems:5,
-  sumary : 26.6,
-  tax: 20,
-  total:80
-  }
+export class AppComponent implements OnInit {
+
   products: Product[]=[
     {
       id:1,
@@ -48,6 +44,68 @@ export class AppComponent {
       quantity:10,
     }
   ];
+  cartsumary={
+    numberItems: this.products.length,
+    sumary : 26.6,
+    tax: 20,
+    total:80
+    }
+  ngOnInit(){
+  }
+  ngDoCheck(){
+this.sumTotal()
+  }
+  removeProduct(param:any){
+    console.log(param)
+    const index= this.products.findIndex((product:any) => product.id=== param)
+  this.products.splice(index,1)
+  this.sumTotal()
+  this.sumProduct()
+
+  setTimeout(() => {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your delete product',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }, 1000);
+
+  }
+  updateQuantity(element:any){
+    console.log(element.id);
+
+    const index= this.products.findIndex((product:any) => product.id== element.id)
+    console.log(index);
+    this.products[index].quantity = element.value
+    this.sumTotal()
+    this.sumProduct()
+    setTimeout(() => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your update product',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }, 3000);
+
+
+  }
+  sumTotal():void{
+    for(let product of this.products){
+      this.cartsumary.sumary=0
+      this.cartsumary.sumary += product.quantity*product.price;
+    }
+    this.cartsumary.total= this.cartsumary.tax + this.cartsumary.sumary
+
+
+  }
+  sumProduct():void{
+    this.cartsumary.numberItems = this.products.length
+
+  }
 
 
 }
