@@ -1,0 +1,35 @@
+<div class="name-card">
+  <div class="name-card__content-left">
+    <img src="https://genk.mediacdn.vn/thumb_w/690/2019/7/8/1-15625474669018688730.jpg" alt="Logo"
+      class="name-card__avatar">
+  </div>
+  <div class="name-card__content-right">
+    <form [formGroup]="productAddForm" (ngSubmit)="addProduct()">
+      <b class="fs-1">Add Product</b>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName="name"
+          aria-describedby="emailHelp">
+        <small *ngIf="form.name?.touched &&  !form.name?.dirty && !form.name?.valid && form.name?.errors?.['required']"
+          class="help-block text-danger">Vui lòng nhập name </small>
+
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Description</label>
+        <textarea name="" id="" cols="50" rows="5"class="form-control" id="exampleInputPassword1" formControlName="description"></textarea>
+        <p *ngIf="!form.description?.valid && (form.description?.dirty
+            ||form.description?.touched) && form.description?.errors?.['required']"
+            class="help-block text-danger">description is required</p>
+        <p *ngIf="!form.description?.valid && (form.description?.dirty
+        ||form.description?.touched) && form.description?.errors?.['minlength']"
+        class="help-block text-danger">Minlength description not valid</p>
+
+      </div>
+
+        <!-- <div *ngIf="LoginForm.valid">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div> -->
+        <button type="submit" [disabled]="!productAddForm.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

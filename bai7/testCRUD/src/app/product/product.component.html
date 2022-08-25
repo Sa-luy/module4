@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products ">
+      <td>{{product.id}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>
+        <a [routerLink]="['/edit-product',product.id] " class="btn btn-warning">Edit</a>
+        <a [routerLink]="['/delete-product',product.id-1] " class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+
+  </tbody>
+  </table>
