@@ -10,6 +10,7 @@ import { IWord } from '../iword';
 export class DictionayPageComponent implements OnInit {
   mean:any;
   dictionaies:IWord[] = [];
+  
 
   constructor(
     private _dictionary:DictionaryService,
