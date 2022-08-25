@@ -1,0 +1,23 @@
+<table class="table table-striped-columns">
+  <thead>
+    <tr>
+    <th>Word</th>
+    <th>Mean</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dictionary of  dictionaies,let idx = index">
+      <td>{{dictionary.word}}</td>
+      <td>{{dictionary.mean}}</td>
+      <td>
+        <a [routerLink]="['/detail',idx]">Detail</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<form action="" >
+  <input type="text" #word class="form-control">
+  <input type="submit" class="btn btn-primary" (click)="dictionary(word.value)" value="Search">
+</form>
+<p>{{mean}}</p>
