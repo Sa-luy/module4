@@ -1,0 +1,36 @@
+
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <h5>Have {{books.length}} book</h5>
+    </div>
+    <div class="col">
+      <h3>List Book</h3>
+    </div>
+    <div class="col">
+      <a href="" class="btn btn-secondary" [routerLink]="['/add']">Add</a>
+    </div>
+  </div>
+</div>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>#</th>
+    <th> Name book </th>
+    <th>Author book</th>
+    <th>Action</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr *ngFor="let book of books">
+    <td>{{book.id}}</td>
+    <td><a [routerLink]="['/book/show',book.id]">{{book.name}}</a></td>
+    <td>{{book.author}}</td>
+    <td>
+      <a [routerLink]="['/book/edit',book.id]"class="btn btn-warning">Edit</a>
+      <a (click)="removeBook(book.id)" class="btn btn-danger">Delete</a>
+    </td>
+  </tr>
+ </tbody>
+</table>
